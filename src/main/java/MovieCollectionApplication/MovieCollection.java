@@ -15,8 +15,14 @@ public class MovieCollection implements Iterable<Movie> {
     public Movie findMovieByTitle(String title){
         return  movies.get(title);
     }
+    public List<Movie> findMoviesByYear(int year) {
+        return movies.values().stream()
+                .filter(movie -> movie.getYear() == year)
+                .toList();
+    }
     @Override
     public Iterator<Movie> iterator(){
         return  movies.values().iterator();
     }
+
 }
