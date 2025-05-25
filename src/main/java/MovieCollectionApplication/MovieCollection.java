@@ -20,6 +20,17 @@ public class MovieCollection implements Iterable<Movie> {
                 .filter(movie -> movie.getYear() == year)
                 .toList();
     }
+    public List<Movie> findMoviesByDirector(String director) {
+        return movies.values().stream()
+                .filter(movie -> movie.getDirector().equals(director))
+                .toList();
+    }
+
+    public List<Movie> findMoviesByGenre(String genre) {
+        return movies.values().stream()
+                .filter(movie -> movie.getGenre().equals(genre))
+                .toList();
+    }
     @Override
     public Iterator<Movie> iterator(){
         return  movies.values().iterator();
